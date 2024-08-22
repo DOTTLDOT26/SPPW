@@ -1,0 +1,21 @@
+<?php
+// login.php
+session_start();
+
+// Hardcoded username and password
+$username = "JDTHOM26";
+$password = "090720122626";
+
+// Fetch input data
+$inputUsername = $_POST['username'];
+$inputPassword = $_POST['password'];
+
+// Check if the credentials match
+if ($inputUsername === $username && $inputPassword === $password) {
+    $_SESSION['loggedin'] = true;
+    header("Location: protected.php");
+    exit();
+} else {
+    echo "<script>alert('Invalid credentials. Please try again.'); window.location.href='login.html';</script>";
+}
+?>
